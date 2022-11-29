@@ -2,10 +2,10 @@ import os
 from pathlib import Path
 #import dj_database_url
 
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-#load_dotenv(os.path.join(BASE_DIR, ".env"))
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 SECRET_KEY = 'change me'
 if SECRET_KEY in os.environ:
@@ -59,7 +59,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-#DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_URL = os.getenv("DATABASE_URL")
 #DATABASE_URL = os.environ.get("DATABASE_URL")
 #DATABASE_URL = 'postgresql://${{ PGUSER }}:${{ PGPASSWORD }}@${{ PGHOST }}:${{ PGPORT }}/${{ PGDATABASE }}'
 '''
@@ -83,6 +83,19 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv("PGDATABASE"), # os.environ["PGDATABASE"],
+        'USER': os.getenv("PGUSER"), # os.environ["PGUSER"],
+        'PASSWORD': os.getenv("PGPASSWORD"), # os.environ["PGPASSWORD"],
+        'HOST': os.getenv("PGHOST"), # os.environ["PGHOST"],
+        'PORT': os.getenv("PGPORT"), # os.environ["PGPORT"],
+    }
+}
+
+'''
+#railway
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway', # os.environ["PGDATABASE"],
         'USER': 'postgres', # os.environ["PGUSER"],
         'PASSWORD': 'AwTzHbmwRyMsn61fiNWb', # os.environ["PGPASSWORD"],
@@ -90,7 +103,7 @@ DATABASES = {
         'PORT': '6165' # os.environ["PGPORT"],
     }
 }
-
+'''
 AUTH_PASSWORD_VALIDATORS = [
     { 'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', },
     { 'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', },
