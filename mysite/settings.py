@@ -64,7 +64,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 #print('DATABASE_URL: ', DATABASE_URL)
 PASSWORD = os.getenv("PGPASSWORD")
 #print('PASSWORD: ', PASSWORD)
-DATABASES = {
+DATABASES = {    
     "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
 '''
@@ -80,7 +80,7 @@ DATABASES = {
     }
 }
 
-'''
+
 #railway
 DATABASES = {
     'default': {
@@ -93,7 +93,7 @@ DATABASES = {
     }
 }
 
-'''
+
 #railway
 DATABASES = {
     'default': {
