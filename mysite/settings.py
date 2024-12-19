@@ -16,8 +16,8 @@ if PGPASSWORD in os.environ:
     PGPASSWORD = os.environ["PGPASSWORD"]
     print('password is ', PGPASSWORD)
 
-DEBUG = True
-ALLOWED_HOSTS = ['*'] # ['127.0.0.1', '.pythonanywhere.com']
+DEBUG = False
+ALLOWED_HOSTS = ['*']
 # add .amazonaws.com to the ALLOWED_HOSTS if cloud9 is used
 INSTALLED_APPS = [
     'django.contrib.admin',
